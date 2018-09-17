@@ -1,0 +1,50 @@
+
+  <div class="container">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">les livres bestseller selectionné par le NewYork times </label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="catégorie de livre exmple :science" name="titre" ngModel required>
+            <input type="submit" value="Envoyer" [disabled]="f.invalid" >
+          </div>
+          </form>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="list_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Catégorie </th>
+      <td mat-cell *matCellDef="let element"> {{element.list_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>titre </th>
+        <td mat-cell *matCellDef="let element"> {{element.book_details[0].title}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Auteur </th>
+        <td mat-cell *matCellDef="let element"> {{element.book_details[0].author}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="bestsellers_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de best seller  </th>
+      <td mat-cell *matCellDef="let element"> {{element.bestsellers_date}} </td>
+    </ng-container>
+
+  <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.book_details[0].description}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="length"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>
+
+
+

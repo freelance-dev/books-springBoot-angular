@@ -1,0 +1,19 @@
+<div class="container">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Titre</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titre" name="titre" ngModel required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Auteur</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Auteur" name="auteur" ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description du livre </label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" ngModel required></textarea>
+  </div>
+  <input type="submit" value="Envoyer" [disabled]="f.invalid" >
+  <p class="text-success">{{messageEnvoye}} </p>
+</form>
+</div>
