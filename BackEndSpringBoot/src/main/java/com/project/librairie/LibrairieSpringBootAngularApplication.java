@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LibrairieSpringBootAngularApplication {
 
 	public static void main(String[] args) {
+		System.out.println("test");
 	SpringApplication.run(LibrairieSpringBootAngularApplication.class, args);
 //		Book book =(Book)applicationContext.getBean(Book.class);
 //		
